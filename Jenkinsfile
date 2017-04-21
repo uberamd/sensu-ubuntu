@@ -1,11 +1,8 @@
-pipeline {
-    agent any
+docker.withRegistry('https://registry.hub.docker.com', '01f028bd-24f2-43da-9366-05859f9cda11') {
+    stage 'Building image'
+    def buildContainer = docker.build "uberamd/sensu-docker:${env.BUILD_NUMBER}"
+    buildContainer.push()
 
-    stages {
-        stage('Build') {
-            steps {
-                docker.build 'sensu-ubuntu:snapshot'
-            }
-        }
-    }
+    stage 'Pushing image'
+    buildContainer.push 'latest'
 }
