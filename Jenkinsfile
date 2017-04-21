@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t sensu-ubuntu .'
+                docker.build 'sensu-ubuntu:snapshot'
             }
         }
     }
