@@ -1,7 +1,7 @@
 FROM ubuntu:xenial
 MAINTAINER uberamd@gmail.com
 
-ARG SENSU_VERSION=0.29.0
+ARG SENSU_VERSION=0.29.0-11
 ENV SENSU_VERSION ${SENSU_VERSION}
 
 ADD https://sensu.global.ssl.fastly.net/apt/pubkey.gpg /tmp/pubkey.gpg
