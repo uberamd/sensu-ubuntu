@@ -8,9 +8,9 @@ pipeline:
     repo: uberamd/sensu-ubuntu
     tags:
       - latest
-      - 0.29.0
+      - 0.29
     args:
-      - SENSU_VERSION=0.29.0
+      - SENSU_VERSION=0.29.0-11
     dockerfile: Dockerfile
     insecure: false
     secrets: [ docker_username, docker_password ]
