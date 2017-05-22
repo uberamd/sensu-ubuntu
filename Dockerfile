@@ -1,6 +1,9 @@
 FROM ubuntu:xenial
 MAINTAINER uberamd@gmail.com
 
+ARG SENSU_VERSION=0.29.0
+ENV SENSU_VERSION ${SENSU_VERSION}
+
 ADD https://sensu.global.ssl.fastly.net/apt/pubkey.gpg /tmp/pubkey.gpg
 
 RUN \
@@ -12,5 +15,5 @@ RUN \
   && echo 'deb     https://sensu.global.ssl.fastly.net/apt xenial main' > /etc/apt/sources.list.d/sensu.list \
   && apt-get update \
   && apt-get upgrade -y \
-  && apt-get install -y sensu
+  && apt-get install -y sensu=${SENSU_VERSION}
 

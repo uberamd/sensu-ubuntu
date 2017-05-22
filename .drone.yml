@@ -1,0 +1,17 @@
+debug: false
+
+pipeline:
+  docker:
+    image: plugins/docker
+    environment:
+      - DOCKER_LAUNCH_DEBUG=false
+    repo: uberamd/sensu-ubuntu
+    tags:
+      - latest
+      - 0.29.0
+    args:
+      - SENSU_VERSION=0.29.0
+    dockerfile: Dockerfile
+    insecure: false
+    secrets: [ docker_username, docker_password ]
+
