@@ -14,4 +14,16 @@ pipeline:
     dockerfile: Dockerfile
     insecure: false
     secrets: [ docker_username, docker_password ]
+  docker:
+    image: plugins/docker
+    environment:
+      - DOCKER_LAUNCH_DEBUG=false
+    repo: uberamd/sensu-ubuntu
+    tags:
+      - 1.2.1
+    args:
+      - SENSU_VERSION=1.2.1-2
+    dockerfile: Dockerfile
+    insecure: false
+    secrets: [ docker_username, docker_password ]
 
